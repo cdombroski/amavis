@@ -7,6 +7,7 @@ RUN apk add --no-cache amavis clamav-daemon cabextract spamassassin
 RUN apk del curl
 RUN mkdir /config; mv /etc/amavisd.conf /config;mv /etc/clamav /config;mv /etc/mail /config;ln -s /config/amavisd.conf /etc;ln -s /config/clamav /etc;ln -s /config/mail /etc
 VOLUME /config
+VOLUME /mail
 ADD rootfs /
 ENTRYPOINT ["/init"]
 CMD ["/usr/bin/amavisd-nanny"]

@@ -1,0 +1,4 @@
+#!/bin/sh
+find /mail/public/.ham ! -name 'dovecot*' -type f -exec /usr/bin/sa-learn --ham {} +
+find /mail/public/.spam ! -name 'dovecot*' -type f -exec /usr/bin/sa-learn --spam {} +
+find /mail/public ! -name 'dovecot*' -type f -delete
